@@ -14,9 +14,11 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        var editTextBackend = findViewById<EditText>(R.id.backend_url)
-        var saveUrlBtn=findViewById<Button>(R.id.save_btn);
         val sharedPreferences = getSharedPreferences("sharedPreferences", Context.MODE_PRIVATE)
+        val editTextBackend = findViewById<EditText>(R.id.backend_url)
+        val backendUrl = sharedPreferences.getString("backendURL", "https://abhishekjnvk.loca.lt")
+        editTextBackend.setText(backendUrl)
+        val saveUrlBtn=findViewById<Button>(R.id.save_btn);
 
         requestPermissions(
             arrayOf(
